@@ -1,10 +1,9 @@
 ﻿namespace Core.Entities
 {
-    public class PortFolioItem : EntityBase
+    public class PortfolioItem : EntityBase
     {
-        public string _Name { get; set; }
-        public string _Picture { get; set; }
-        public string _Description { get; set; }
-
+        public string ProjectName { get; set; }
+        public string Description { get; set; }
+        public string ImageUrl { get; set; }
     }
 }

@@ -2,10 +2,9 @@
 {
     public class Owner : EntityBase
     {
-        public string _FullName { get; set; }
-        public string _Profil { get; set; }
-        public string _Avatar { get; set; }
-
-        public Adress _Adress { get; set; }
+        public string FullName { get; set; }
+        public string Profil { get; set; }
+        public string Avatar { get; set; }
+        public Address Address { get; set; }
     }
 }

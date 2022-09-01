@@ -1,5 +1,8 @@
 ﻿using Core.Entities;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace Infrastructure
 {
@@ -15,26 +18,23 @@ namespace Infrastructure
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Owner>().Property(x => x.Id).HasDefaultValue("NEWID");
-            modelBuilder.Entity<PortFolioItem>().Property(x => x.Id).HasDefaultValue("NEWID");
+            modelBuilder.Entity<Owner>().Property(x => x.Id).HasDefaultValueSql("NEWID()");
+            modelBuilder.Entity<PortfolioItem>().Property(x => x.Id).HasDefaultValueSql("NEWID()");
 
-
-
-            modelBuilder.Entity<Owner>().HasData
-            (
+            modelBuilder.Entity<Owner>().HasData(
                 new Owner()
                 {
                     Id = Guid.NewGuid(),
-                    _Avatar = "pdp.jfif",
-                    _FullName = "Ayoub LAOUAD",
-                    _Profil = "Backend Developer"
+                    Avatar = "pdp.jfif",
+                    FullName = "Ayoub LAOUAD",
+                    Profil = "Backend developer",
+                    Address = new Address() 
+                    { Id = Guid.NewGuid(), City = "Antwerp", Street = "Kruikstraat", Number=1 }
                 }
-
-            );
+                );
         }
 
-        public DbSet<Owner> Owner { get; set; }S
-        public DbSet<PortFolioItem> PortFolioItems { get; set; }
-
+        public DbSet<Owner> Owner { get; set; }
+        public DbSet<PortfolioItem> PortfolioItems { get; set; }
     }
 }
