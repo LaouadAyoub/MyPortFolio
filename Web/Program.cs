@@ -1,9 +1,11 @@
 var builder = WebApplication.CreateBuilder(args);
+//private readonly IConfiguration? configuration;
+
 builder.Services.AddMvc();
 
 var app = builder.Build();
 
-
+//builder.Configuration
 
 
 

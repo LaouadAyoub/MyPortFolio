@@ -33,7 +33,7 @@ namespace Infrastructure
             );
         }
 
-        public DbSet<Owner> Owner { get; set; }S
+        public DbSet<Owner> Owner { get; set; }
         public DbSet<PortFolioItem> PortFolioItems { get; set; }
 
     }
