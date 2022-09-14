@@ -34,12 +34,8 @@ namespace Infrastructure
                 );
         }
 
-        public DbSet<Owner> Owner { get; set; }
-<<<<<<< HEAD
+        public DbSet<Owner> Owner { get; set; }S
         public DbSet<PortFolioItem> PortFolioItems { get; set; }
 
-=======
-        public DbSet<PortfolioItem> PortfolioItems { get; set; }
->>>>>>> fe2f1836cc52df00a128aec106b8c08fb5b3387c
     }
 }
