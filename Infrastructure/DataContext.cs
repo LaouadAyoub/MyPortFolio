@@ -21,21 +21,21 @@ namespace Infrastructure
             modelBuilder.Entity<Owner>().Property(x => x.Id).HasDefaultValueSql("NEWID()");
             modelBuilder.Entity<PortfolioItem>().Property(x => x.Id).HasDefaultValueSql("NEWID()");
 
-            modelBuilder.Entity<Owner>().HasData(
-                new Owner()
-                {
-                    Id = Guid.NewGuid(),
-                    Avatar = "pdp.jfif",
-                    FullName = "Ayoub LAOUAD",
-                    Profil = "Backend developer",
-                    Address = new Address() 
-                    { Id = Guid.NewGuid(), City = "Antwerp", Street = "Kruikstraat", Number=1 }
-                }
-                );
+            Owner[] owners = new Owner[] {             
+            new Owner()
+            {
+                Id = Guid.NewGuid(),
+                Avatar = "pdp.jfif",
+                FullName = "Ayoub LAOUAD",
+                Profil = "Backend developer"
+            }};
+
+            modelBuilder.Entity<Owner>().HasData(owners);
+
         }
 
-        public DbSet<Owner> Owner { get; set; }S
-        public DbSet<PortFolioItem> PortFolioItems { get; set; }
+        public DbSet<Owner> Owners { get; set; }
+        public DbSet<PortfolioItem> PortFolioItems { get; set; }
 
     }
 }
