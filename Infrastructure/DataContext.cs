@@ -13,7 +13,8 @@ namespace Infrastructure
         {
 
         }
-
+//on model creating
+/*
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -33,9 +34,19 @@ namespace Infrastructure
             modelBuilder.Entity<Owner>().HasData(owners);
 
         }
+*/
+
+
+
 
         public DbSet<Owner> Owners { get; set; }
         public DbSet<PortfolioItem> PortFolioItems { get; set; }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            string connectionString = "workstation id=myportfolioDb001.mssql.somee.com;packet size=4096;user id=Ayoub_SQLLogin_1;pwd=6w8xggmsnm;data source=myportfolioDb001.mssql.somee.com;persist security info=False;initial catalog=myportfolioDb001";
+            optionsBuilder.UseSqlServer(connectionString);
+            optionsBuilder.EnableSensitiveDataLogging();
+        }
     }
 }

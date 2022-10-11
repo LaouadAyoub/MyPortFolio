@@ -29,15 +29,17 @@ namespace Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            //services.AddDbContext<DataContext>(options =>
-            //{
-            //    options.UseSqlServer(configuration.GetConnectionString("MyPortfolioDB"));
-            //});
+            services.AddDbContext<DataContext>(options =>
+            {
+                //options.UseSqlServer(configuration.GetConnectionString("MyPortfolioDB"));
+            });
 
-            services.AddDbContextFactory<DataContext>(options => options.UseSqlServer(configuration.GetConnectionString("MyPortfolioDB")));
 
-            services.AddScoped(typeof(IUnitOfWork<>), typeof(UnitOfWork<>));
+
+            services.AddTransient(typeof(IUnitOfWork<>), typeof(UnitOfWork<>));
         }
+
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
