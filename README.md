@@ -7,3 +7,8 @@ The application in hosted on Heroku and the data base on Somee.
 The application is avaiable on this link : https://myportfolioapp0001.herokuapp.com/
 
 ![image](https://user-images.githubusercontent.com/96794946/189964793-863b491c-8150-456c-b3aa-b928195e938f.png)
+
+## Admin mode
+
+![image](https://user-images.githubusercontent.com/96794946/195596774-1977bca3-ead4-42d7-933e-cd7ba9b63bda.png)
+![image](https://user-images.githubusercontent.com/96794946/195596992-6652fbb0-01b7-480a-bfde-332e1c367a61.png)
