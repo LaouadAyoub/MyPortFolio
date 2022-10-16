@@ -1,19 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Core.Interfaces;
-//using Core.Interfaces;
+﻿using Core.Interfaces;
 using Infrastructure;
 using Infrastructure.UnitOfWork;
-//using Infrastructure.UnitOfWork;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 
 namespace Web
 {
@@ -29,17 +16,11 @@ namespace Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddDbContext<DataContext>(options =>
-            {
-                //options.UseSqlServer(configuration.GetConnectionString("MyPortfolioDB"));
-            });
-
-
+            services.AddRazorPages();
+            services.AddDbContext<DataContext>(options => { });
 
             services.AddTransient(typeof(IUnitOfWork<>), typeof(UnitOfWork<>));
         }
-
-
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -52,12 +33,17 @@ namespace Web
             app.UseStaticFiles();
             app.UseRouting();
 
+            app.UseAuthentication();
+            app.UseAuthorization();
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     "defaultRoute",
                     "{controller=Home}/{action=Index}/{id?}"
                     );
+
+                endpoints.MapRazorPages();
             });
         }
     }
