@@ -24,7 +24,7 @@ namespace Infrastructure
         {
             if (!optionsBuilder.IsConfigured)
             {
-                string connectionString = @"workstation id=myportfolioDb001.mssql.somee.com;packet size=4096;user id=Ayoub_SQLLogin_1;pwd=6w8xggmsnm;data source=myportfolioDb001.mssql.somee.com;persist security info=False;initial catalog=myportfolioDb001";
+                string connectionString = @"workstation id=myportfolioDb001.mssql.somee.com;packet size=4096;user id=Ayoub_SQLLogin_1;pwd=6w8xggmsnm;data source=myportfolioDb001.mssql.somee.com;persist security info=False;initial catalog=myportfolioDb001; TrustServerCertificate=True";
 
                 optionsBuilder.UseSqlServer(connectionString);
                 optionsBuilder.EnableSensitiveDataLogging();
