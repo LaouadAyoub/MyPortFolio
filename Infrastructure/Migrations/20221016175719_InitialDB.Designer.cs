@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20221016121807_UpdateDb-2")]
-    partial class UpdateDb2
+    [Migration("20221016175719_InitialDB")]
+    partial class InitialDB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -51,7 +51,7 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("c5b995f9-e6ea-4ef4-a608-4c7603a8863f"),
+                            Id = new Guid("c4d03203-e0ba-4053-8cb4-c2efa64ecb67"),
                             Avatar = "pdp.jfif",
                             FullName = "Ayoub LAOUAD",
                             Profil = "Backend developer"

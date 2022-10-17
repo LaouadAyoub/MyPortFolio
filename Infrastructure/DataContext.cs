@@ -24,8 +24,8 @@ namespace Infrastructure
         {
             if (!optionsBuilder.IsConfigured)
             {
-                string connectionString = @"Data Source = DESKTOP-O1NBMET; 
-                                    Initial Catalog = MyPortfolioDb; 
+                string connectionString = @"Data Source = (localdb)\MSSQLLocalDB; 
+                                    Initial Catalog = MyPortfolioDB; 
                                     Integrated Security = SSPI; 
                                     TrustServerCertificate = True";
 
@@ -69,6 +69,7 @@ namespace Infrastructure
 
             modelBuilder.Entity<Owner>().HasData(owners);
             //modelBuilder.Entity<IdentityUser>().HasData(identityUser);
+
         }
     }
 }

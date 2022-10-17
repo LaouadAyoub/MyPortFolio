@@ -6,16 +6,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class UpdateDb2 : Migration
+    public partial class InitialDB : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DeleteData(
-                table: "Owners",
-                keyColumn: "Id",
-                keyValue: new Guid("0c51e583-0438-471e-89bc-e80cf8c0e8bd"));
-
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
@@ -53,6 +48,34 @@ namespace Infrastructure.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Owners",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false, defaultValueSql: "NEWID()"),
+                    FullName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Profil = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Avatar = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Owners", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "PortFolioItems",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false, defaultValueSql: "NEWID()"),
+                    ProjectName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PortFolioItems", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -164,7 +187,7 @@ namespace Infrastructure.Migrations
             migrationBuilder.InsertData(
                 table: "Owners",
                 columns: new[] { "Id", "Avatar", "FullName", "Profil" },
-                values: new object[] { new Guid("c5b995f9-e6ea-4ef4-a608-4c7603a8863f"), "pdp.jfif", "Ayoub LAOUAD", "Backend developer" });
+                values: new object[] { new Guid("c4d03203-e0ba-4053-8cb4-c2efa64ecb67"), "pdp.jfif", "Ayoub LAOUAD", "Backend developer" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -225,20 +248,16 @@ namespace Infrastructure.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Owners");
+
+            migrationBuilder.DropTable(
+                name: "PortFolioItems");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
-
-            migrationBuilder.DeleteData(
-                table: "Owners",
-                keyColumn: "Id",
-                keyValue: new Guid("c5b995f9-e6ea-4ef4-a608-4c7603a8863f"));
-
-            migrationBuilder.InsertData(
-                table: "Owners",
-                columns: new[] { "Id", "Avatar", "FullName", "Profil" },
-                values: new object[] { new Guid("0c51e583-0438-471e-89bc-e80cf8c0e8bd"), "pdp.jfif", "Ayoub LAOUAD", "Backend developer" });
         }
     }
 }

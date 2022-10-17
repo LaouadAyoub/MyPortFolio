@@ -48,7 +48,7 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("2da19890-3a3a-4eea-a732-40e0f9cd461d"),
+                            Id = new Guid("c4d03203-e0ba-4053-8cb4-c2efa64ecb67"),
                             Avatar = "pdp.jfif",
                             FullName = "Ayoub LAOUAD",
                             Profil = "Backend developer"
@@ -194,24 +194,6 @@ namespace Infrastructure.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "b5b91d43-91c2-4256-a2cc-e494e06df477",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "81762e03-8f1a-498e-8d67-364b99c413e7",
-                            Email = "admin@gmail.com",
-                            EmailConfirmed = false,
-                            LockoutEnabled = false,
-                            NormalizedEmail = "ADMIN@GMAIL.COM",
-                            NormalizedUserName = "ADMIN@GMAIL.COM",
-                            PasswordHash = "Admin@123456",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "37c7b7a1-761d-4fbf-a108-5e0d68e48de0",
-                            TwoFactorEnabled = false,
-                            UserName = "admin@gmail.com"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>

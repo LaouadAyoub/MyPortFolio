@@ -23,8 +23,8 @@ namespace Web.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-                string connectionString = @"Data Source = DESKTOP-O1NBMET; 
-                                    Initial Catalog = MyPortfolioDb; 
+                string connectionString = @"Data Source = (localdb)\MSSQLLocalDB; 
+                                    Initial Catalog = MyPortfolioDB; 
                                     Integrated Security = SSPI; 
                                     TrustServerCertificate = True";
 
