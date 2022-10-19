@@ -1,6 +1,7 @@
 ﻿using Core.Interfaces;
 using Infrastructure;
 using Infrastructure.UnitOfWork;
+using System.Net;
 
 namespace Web
 {
@@ -22,6 +23,13 @@ namespace Web
             services.AddTransient(typeof(IUnitOfWork<>), typeof(UnitOfWork<>));
 
             //services.AddHttpsRedirection(options => { options.HttpsPort = 443; });
+$
+            services.AddHttpsRedirection(options =>
+            {
+                options.RedirectStatusCode = (int)HttpStatusCode.PermanentRedirect;
+                options.HttpsPort = 443;
+            });
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
