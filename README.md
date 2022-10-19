@@ -17,5 +17,6 @@ To create an abstraction layer between the data access layer and the business la
 ## Admin mode
 <img src="https://user-images.githubusercontent.com/96794946/196310562-69ffeec8-58f7-4f03-8ba2-b85730c2c285.png" width="700" height="400">
 
-<img src="[https://user-images.githubusercontent.com/96794946/195596774-1977bca3-ead4-42d7-933e-cd7ba9b63bda.png](https://user-images.githubusercontent.com/96794946/196753418-ca940e0f-4b09-43eb-8e06-9a787a24e043.png)" width="700" height="400">
+
+<img src="https://user-images.githubusercontent.com/96794946/196753418-ca940e0f-4b09-43eb-8e06-9a787a24e043.png" width="700" height="400">
 <img src="https://user-images.githubusercontent.com/96794946/195596992-6652fbb0-01b7-480a-bfde-332e1c367a61.png" width="700" height="400">
