@@ -30,6 +30,7 @@ namespace Web
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseRouting();
 
