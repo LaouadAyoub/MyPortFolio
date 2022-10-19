@@ -23,7 +23,6 @@ namespace Web
             services.AddTransient(typeof(IUnitOfWork<>), typeof(UnitOfWork<>));
 
             //services.AddHttpsRedirection(options => { options.HttpsPort = 443; });
-$
             services.AddHttpsRedirection(options =>
             {
                 options.RedirectStatusCode = (int)HttpStatusCode.PermanentRedirect;
