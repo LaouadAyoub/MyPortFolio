@@ -4,7 +4,7 @@ This project is a Web App created using Asp.Net core with Entity framework and S
 
 The application in hosted on Heroku and the data base on Somee.
 
-The application is avaiable on this link : www.ayoublaouad.com
+The application is avaiable on this link : https://www.ayoublaouad.com/
 
 <img src="https://user-images.githubusercontent.com/96794946/189964793-863b491c-8150-456c-b3aa-b928195e938f.png" width="700" height="400">
 
