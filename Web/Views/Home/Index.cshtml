@@ -173,6 +173,7 @@
 <!-- portfolio-modal 1-->
 @foreach(var item in Model.PortfolioItems)
 {
+
     <div class="portfolio-modal modal fade" id="item-@item.Id" tabindex="-1" role="dialog" aria-labelledby="portfolioModal1Label" aria-hidden="true">
         <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content">
@@ -199,6 +200,10 @@
                                 <img class="img-fluid rounded mb-5" src="~/img/portfolio/@item.ImageUrl"  alt="">
                                 <!-- Portfolio Modal - Text -->
                                 <p class="mb-5">@item.Description</p>
+                                @if (@item.GithubLink != "")
+                                {
+                                <a href="@item.GithubLink" class="btn btn-dark" role="button" target="_blank">Github</a>
+                                }
                                 <button class="btn btn-primary" href="#" data-dismiss="modal">
                                     <i class="fas fa-times fa-fw"></i>
                                     Close Window

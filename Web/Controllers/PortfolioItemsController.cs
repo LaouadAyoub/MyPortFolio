@@ -96,7 +96,8 @@ namespace Web.Controllers
                 Id = portfolioItem.Id,
                 Description = portfolioItem.Description,
                 ImageUrl = portfolioItem.ImageUrl,
-                ProjectName = portfolioItem.ProjectName
+                ProjectName = portfolioItem.ProjectName,
+                GithubLink = portfolioItem.GithubLink
             };
 
             return View(portfolioViewModel);
