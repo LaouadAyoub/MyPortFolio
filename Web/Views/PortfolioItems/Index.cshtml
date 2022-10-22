@@ -20,6 +20,7 @@
                     @Html.DisplayNameFor(model => model.Description)
                 </th>
                 <th>
+                    
                     @Html.DisplayNameFor(model => model.ImageUrl)
                 </th>
                 <th></th>
@@ -36,7 +37,14 @@
                         @Html.DisplayFor(modelItem => item.Description)
                     </td>
                     <td>
-                        <img src = "~/img/portfolio/@item.ImageUrl" class ="img-thumbnail" style = "width:64px; height:64px">
+                        @{
+                            string[] images = item.ImageUrl.Split(',');
+                            foreach (var desc in images)
+                            {
+                                <img src="~/img/portfolio/@desc" class="img-thumbnail" style="width:64px; height:64px">
+                                break;
+                            }
+                        }
                     </td>
                     <td style="width:160px">
                         <a asp-action="Edit" asp-route-id="@item.Id"><i class="fas fa-edit"></i></a> |

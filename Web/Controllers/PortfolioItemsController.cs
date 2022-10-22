@@ -8,7 +8,7 @@ using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
 namespace Web.Controllers
 {
-    [Authorize]
+  [Authorize]
     public class PortfolioItemsController : Controller
     {
         private readonly IUnitOfWork<PortfolioItem> _portfolio;
@@ -56,25 +56,39 @@ namespace Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(PortfolioViewModel model)
         {
-            //if (ModelState.IsValid)
+            if (ModelState.IsValid)
+            {
+                string images = null;
 
-            if(model.File != null)
-            {
-                string uploads = Path.Combine(_hosting.WebRootPath, @"img\portfolio");
-                string fullPath = Path.Combine(uploads, model.File.FileName);
-                model.File.CopyTo(new FileStream(fullPath, FileMode.Create));
+                if (model.File != null)
+                {
+                    for(int i =0;i< model.File.Count;i++)
+                    {
+                        string uploads = Path.Combine(_hosting.WebRootPath, @"img\portfolio");
+                        string fullPath = Path.Combine(uploads, model.File[i].FileName);
+                        model.File[i].CopyTo(new FileStream(fullPath, FileMode.Create));
+                        if (i == model.File.Count - 1)
+                        {
+                            images += model.File[i].FileName;
+                        }
+                        else
+                        {
+                            images += model.File[i].FileName + ",";
+                        }
+                    }
+
+                }
+                PortfolioItem portfolioItem = new PortfolioItem
+                {
+                    ProjectName = model.ProjectName,
+                    Description = model.Description,
+                    ImageUrl = images
+                };
+
+                _portfolio.Entity.Insert(portfolioItem);
+                _portfolio.save();
+                return RedirectToAction(nameof(Index));
             }
-            PortfolioItem portfolioItem = new PortfolioItem
-            {
-                ProjectName = model.ProjectName,
-                Description = model.Description,
-                ImageUrl = model.File.FileName
-            };
-                
-            _portfolio.Entity.Insert(portfolioItem);
-            _portfolio.save();
-            return RedirectToAction(nameof(Index));
-            
             return View(model);
         }
 
@@ -122,8 +136,8 @@ namespace Web.Controllers
                     if (model.File != null)
                     {
                         string uploads = Path.Combine(_hosting.WebRootPath, @"img\portfolio");
-                        string fullPath = Path.Combine(uploads, model.File.FileName);
-                        model.File.CopyTo(new FileStream(fullPath, FileMode.Create));
+                        string fullPath = Path.Combine(uploads, model.File[0].FileName);
+                        model.File[0].CopyTo(new FileStream(fullPath, FileMode.Create));
                     }
 
                     PortfolioItem portfolioItem = new PortfolioItem
@@ -131,7 +145,7 @@ namespace Web.Controllers
                         Id = model.Id,
                         ProjectName = model.ProjectName,
                         Description = model.Description,
-                        ImageUrl = model.File.FileName
+                        ImageUrl = model.File[0].FileName
                     };
 
                     _portfolio.Entity.Update(portfolioItem);
