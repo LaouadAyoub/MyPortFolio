@@ -56,25 +56,25 @@ namespace Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(PortfolioViewModel model)
         {
-            if (ModelState.IsValid)
+            //if (ModelState.IsValid)
+
+            if(model.File != null)
             {
-                if(model.File != null)
-                {
-                    string uploads = Path.Combine(_hosting.WebRootPath, @"img\portfolio");
-                    string fullPath = Path.Combine(uploads, model.File.Name);
-                    model.File.CopyTo(new FileStream(fullPath, FileMode.Create));
-                }
-                PortfolioItem portfolioItem = new PortfolioItem
-                {
-                    ProjectName = model.ProjectName,
-                    Description = model.Description,
-                    ImageUrl = model.File.FileName
-                };
-                
-                _portfolio.Entity.Insert(portfolioItem);
-                _portfolio.save();
-                return RedirectToAction(nameof(Index));
+                string uploads = Path.Combine(_hosting.WebRootPath, @"img\portfolio");
+                string fullPath = Path.Combine(uploads, model.File.FileName);
+                model.File.CopyTo(new FileStream(fullPath, FileMode.Create));
             }
+            PortfolioItem portfolioItem = new PortfolioItem
+            {
+                ProjectName = model.ProjectName,
+                Description = model.Description,
+                ImageUrl = model.File.FileName
+            };
+                
+            _portfolio.Entity.Insert(portfolioItem);
+            _portfolio.save();
+            return RedirectToAction(nameof(Index));
+            
             return View(model);
         }
 
