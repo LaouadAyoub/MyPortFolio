@@ -2,7 +2,7 @@
 
 This project is an ASP.NET Core Web App with Entity framework and SqlServer
 
-The application in hosted on Heroku and the data base on Somee.
+The application in hosted on Heroku and the database on Somee.
 
 The application is avaiable on this link : https://www.ayoublaouad.com/
 
