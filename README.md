@@ -1,6 +1,6 @@
 # MyPortFolio
 
-This project is an ASP.NET Core Web App created using Asp.Net core with Entity framework and SqlServer
+This project is an ASP.NET Core Web App with Entity framework and SqlServer
 
 The application in hosted on Heroku and the data base on Somee.
 
