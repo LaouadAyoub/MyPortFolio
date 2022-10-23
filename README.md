@@ -17,6 +17,8 @@ The informations about portfolio items and the owner of the portfolio are define
 To create an abstraction layer between the data access layer and the business layer, I added Repository and Unit of work design patterns. Repository act like an in-memory collection of domain objects, while Unit of work maintains a list of objects and later saves in-memory updates as one transaction into database.
 
 ## Admin mode
+
+The admin has the right to modify the portfolio items, also, he can read received messages :
 <img src="https://user-images.githubusercontent.com/96794946/196310562-69ffeec8-58f7-4f03-8ba2-b85730c2c285.png" width="700" height="400">
 
 
