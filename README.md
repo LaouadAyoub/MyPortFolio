@@ -12,6 +12,8 @@ The application is avaiable on this link : https://www.ayoublaouad.com/
 The informations about portfolio items and the owner of the portfolio are defined in the data access layer
 ![image](https://user-images.githubusercontent.com/96794946/196733411-4ea75ccf-9fcb-4c5a-bdb7-912cfc6ee41d.png)
 
+## Repository/Unit of work
+
 To create an abstraction layer between the data access layer and the business layer, I added Repository and Unit of work design patterns. Repository act like an in-memory collection of domain objects, while Unit of work maintains a list of objects and later saves in-memory updates as one transaction into database.
 
 ## Admin mode
