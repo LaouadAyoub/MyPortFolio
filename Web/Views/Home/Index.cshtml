@@ -62,7 +62,7 @@
                             string[] images = portfolioItem.ImageUrl.Split(',');
                             foreach (var desc in images)
                             {
-                                                                        <img src="~/img/portfolio/@desc" class="img-fluid">
+                                <img src="~/img/portfolio/@desc" class="img-fluid">
                                 break;
                             }
                         }
@@ -106,7 +106,7 @@
 
         <!-- About Section Button -->
         <div class="text-center mt-4">
-            <a class="btn btn-xl btn-outline-light" href="https://1drv.ms/b/s!ArFBk_sEY9SPgVLDUl5uvS_FVIJs?e=eEOxZU" target="_blank">
+            <a class="btn btn-xl btn-outline-light" href="https://drive.google.com/file/d/1aB2F-21a1mhn-sN9nLzNZgvUhtJ4WOz3/view?usp=sharing" target="_blank">
                 <i class="fas fa-download mr-2"></i>
                 Download my resumee
             </a>
@@ -245,10 +245,19 @@
                           
                                 <!-- Portfolio Modal - Text -->
                                 @{
-                                    string[] items = @item.Description.Split('•');
+                                    string[] items = @item.Description.Split(';');
                                     foreach (var desc in items)
                                     {
-                                        <p class="mb-1" style="text-align:left">• @desc</p>
+                                        if (desc == items[0])
+                                        {
+                                            <p class="mb-1" style="text-align:center"><b>@desc</b></p>
+
+                                        }
+                                        else
+                                        {
+                                            <p class="mb-1" style="text-align:left">• @desc</p>
+
+                                        }
                                     }
                                 }
 
