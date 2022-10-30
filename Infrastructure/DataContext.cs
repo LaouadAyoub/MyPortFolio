@@ -22,14 +22,15 @@ namespace Infrastructure
 
         public DbSet<Owner> Owners { get; set; }
         public DbSet<PortfolioItem> PortFolioItems { get; set; }
+        public DbSet<Email> Emails { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-                string connectionString = "workstation id=myportfolioDb001.mssql.somee.com;packet size=4096;user id=Ayoub_SQLLogin_1;pwd=6w8xggmsnm;data source=myportfolioDb001.mssql.somee.com;persist security info=False;initial catalog=myportfolioDb001; TrustServerCertificate=True";
+                //string connectionString = "workstation id=myportfolioDb001.mssql.somee.com;packet size=4096;user id=Ayoub_SQLLogin_1;pwd=6w8xggmsnm;data source=myportfolioDb001.mssql.somee.com;persist security info=False;initial catalog=myportfolioDb001; TrustServerCertificate=True";
 
-                //string connectionString = @"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = MyPortfolioDB; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False";
+                string connectionString = @"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = MyPortfolioDB; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False";
                 optionsBuilder.UseSqlServer(connectionString);
                 optionsBuilder.EnableSensitiveDataLogging();
             }
@@ -42,6 +43,7 @@ namespace Infrastructure
 
             modelBuilder.Entity<Owner>().Property(x => x.Id).HasDefaultValueSql("NEWID()");
             modelBuilder.Entity<PortfolioItem>().Property(x => x.Id).HasDefaultValueSql("NEWID()");
+            modelBuilder.Entity<Email>().Property(x => x.Id).HasDefaultValueSql("NEWID()");
 
             Owner[] owners = new Owner[] {
             new Owner()

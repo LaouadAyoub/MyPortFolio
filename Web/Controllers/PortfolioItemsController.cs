@@ -59,7 +59,6 @@ namespace Web.Controllers
             if (ModelState.IsValid)
             {
                 string images = null;
-
                 if (model.File != null)
                 {
                     for(int i =0;i< model.File.Count;i++)
@@ -78,6 +77,7 @@ namespace Web.Controllers
                     }
 
                 }
+
                 PortfolioItem portfolioItem = new PortfolioItem
                 {
                     ProjectName = model.ProjectName,

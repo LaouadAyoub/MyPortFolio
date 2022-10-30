@@ -7,9 +7,17 @@
 <ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))
 {
-        <li class="nav-item mx-0 mx-lg-1">
-            <a id="manage" class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" asp-controller="PortfolioItems" asp-action="Index">Hello @UserManager.GetUserName(User)!</a>
-    </li>
+        <li class="nav-item mx-0 mx-lg-1 dropdown">
+            <a class="nav-link dropdown-toggle py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Hello @UserManager.GetUserName(User)!
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" id="manage" asp-controller="PortfolioItems" asp-action="Index">Portfolio</a>
+                <a class="dropdown-item" asp-controller="Emails" asp-action="Index">Emails</a>
+             
+            </div>
+@*            <a id="manage" class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" asp-controller="PortfolioItems" asp-action="Index">Hello @UserManager.GetUserName(User)!</a>
+*@        </li>
         <li class="nav-item mx-0 mx-lg-1">
         <form id="logoutForm" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
                 <button id="logout" type="submit" class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger">Logout</button>
