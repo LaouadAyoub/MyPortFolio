@@ -6,11 +6,11 @@ The application in hosted on Heroku and the database on Somee.
 
 The application is avaiable on this link : https://www.ayoublaouad.com/
 
-<img src="https://user-images.githubusercontent.com/96794946/199355364-cecb988d-03eb-487c-a75f-b3882a37938a.png" width="400" height="400">
+<img src="https://user-images.githubusercontent.com/96794946/189964793-863b491c-8150-456c-b3aa-b928195e938f.png" width="700" height="400">
 
 ## Database
 The informations about portfolio items and the owner of the portfolio are defined in the database
-![image](https://user-images.githubusercontent.com/96794946/196733411-4ea75ccf-9fcb-4c5a-bdb7-912cfc6ee41d.png)
+![image](https://user-images.githubusercontent.com/96794946/199355664-115b562a-6e9b-438b-8baa-c389cf523336.png)
 
 ## Repository/Unit of work
 
