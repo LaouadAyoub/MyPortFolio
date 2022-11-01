@@ -133,11 +133,23 @@ namespace Web.Controllers
             {
                 try
                 {
+                    string images = null;
                     if (model.File != null)
                     {
-                        string uploads = Path.Combine(_hosting.WebRootPath, @"img\portfolio");
-                        string fullPath = Path.Combine(uploads, model.File[0].FileName);
-                        model.File[0].CopyTo(new FileStream(fullPath, FileMode.Create));
+                        for (int i = 0; i < model.File.Count; i++)
+                        {
+                            string uploads = Path.Combine(_hosting.WebRootPath, @"img\portfolio");
+                            string fullPath = Path.Combine(uploads, model.File[i].FileName);
+                            model.File[i].CopyTo(new FileStream(fullPath, FileMode.Create));
+                            if (i == model.File.Count - 1)
+                            {
+                                images += model.File[i].FileName;
+                            }
+                            else
+                            {
+                                images += model.File[i].FileName + ",";
+                            }
+                        }
                     }
 
                     PortfolioItem portfolioItem = new PortfolioItem
