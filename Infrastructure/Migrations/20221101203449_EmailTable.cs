@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class AddGithubLink : Migration
+    public partial class EmailTable : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -15,27 +15,39 @@ namespace Infrastructure.Migrations
                 table: "Owners",
                 keyColumn: "Id",
                 keyValue: new Guid("c4d03203-e0ba-4053-8cb4-c2efa64ecb67"));
+    
 
-            migrationBuilder.AddColumn<string>(
-                name: "GithubLink",
-                table: "PortFolioItems",
-                type: "nvarchar(max)",
-                nullable: false,
-                defaultValue: "");
+            migrationBuilder.CreateTable(
+                name: "Emails",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false, defaultValueSql: "NEWID()"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Emaill = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Number = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Message = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Emails", x => x.Id);
+                });
 
             migrationBuilder.InsertData(
                 table: "Owners",
                 columns: new[] { "Id", "Avatar", "FullName", "Profil" },
-                values: new object[] { new Guid("139056ec-00c2-4019-891a-c8a168557c08"), "pdp.jfif", "Ayoub LAOUAD", "Backend developer" });
+                values: new object[] { new Guid("95179f24-16cb-45b5-a157-29cb9ab8be41"), "pdp.jfif", "Ayoub LAOUAD", "Backend developer" });
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Emails");
+
             migrationBuilder.DeleteData(
                 table: "Owners",
                 keyColumn: "Id",
-                keyValue: new Guid("139056ec-00c2-4019-891a-c8a168557c08"));
+                keyValue: new Guid("95179f24-16cb-45b5-a157-29cb9ab8be41"));
 
             migrationBuilder.DropColumn(
                 name: "GithubLink",
