@@ -82,6 +82,7 @@ namespace Web.Controllers
                 {
                     ProjectName = model.ProjectName,
                     Description = model.Description,
+                    GithubLink = model.GithubLink,
                     ImageUrl = images
                 };
 
@@ -157,7 +158,8 @@ namespace Web.Controllers
                         Id = model.Id,
                         ProjectName = model.ProjectName,
                         Description = model.Description,
-                        ImageUrl = model.File[0].FileName
+                        GithubLink = model.GithubLink,
+                        ImageUrl = images
                     };
 
                     _portfolio.Entity.Update(portfolioItem);
