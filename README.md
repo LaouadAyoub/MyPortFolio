@@ -24,3 +24,5 @@ The admin has the right to modify the portfolio items, also, he can read receive
 
 <img src="https://user-images.githubusercontent.com/96794946/196753418-ca940e0f-4b09-43eb-8e06-9a787a24e043.png" width="700" height="400">
 <img src="https://user-images.githubusercontent.com/96794946/195596992-6652fbb0-01b7-480a-bfde-332e1c367a61.png" width="700" height="400">
+### Emails
+![Emails](https://user-images.githubusercontent.com/96794946/199364536-be5ec3d0-1534-46b4-a253-e0e76520dd79.png)
