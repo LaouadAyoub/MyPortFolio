@@ -21,6 +21,9 @@ To create an abstraction layer between the data access layer and the business la
 The admin has the right to modify the portfolio items, also, he can read received messages :
 <img src="https://user-images.githubusercontent.com/96794946/196310562-69ffeec8-58f7-4f03-8ba2-b85730c2c285.png" width="700" height="400">
 
+<img src="https://user-images.githubusercontent.com/96794946/199364671-93c6f8b8-7627-4868-a07b-a555a27eb8e8.png" width="700" height="400">
+<img src="https://user-images.githubusercontent.com/96794946/199364879-05882c83-a9ea-4859-a66a-ef452862052d.png" width="700" height="400">
 
-<img src="https://user-images.githubusercontent.com/96794946/196753418-ca940e0f-4b09-43eb-8e06-9a787a24e043.png" width="700" height="400">
-<img src="https://user-images.githubusercontent.com/96794946/195596992-6652fbb0-01b7-480a-bfde-332e1c367a61.png" width="700" height="400">
+### Emails
+
+<img src="https://user-images.githubusercontent.com/96794946/199364536-be5ec3d0-1534-46b4-a253-e0e76520dd79.png" width="700" height="400">
